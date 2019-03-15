@@ -2,11 +2,12 @@ from display import *
 from matrix import *
 
   # ====================
-  # add the points for a rectagular prism whose 
-  # upper-left corner is (x, y, z) with width, 
+  # add the points for a rectagular prism whose
+  # upper-left corner is (x, y, z) with width,
   # height and depth dimensions.
   # ====================
 def add_box( points, x, y, z, width, height, depth ):
+
     pass
 
   # ====================
@@ -16,15 +17,19 @@ def add_box( points, x, y, z, width, height, depth ):
   # Returns a matrix of those points
   # ====================
 def generate_sphere( points, cx, cy, cz, r, step ):
-    pass
+    #generating by rotating a circle about the x axis
+    #add_circle command adds it to edge matrix
+
+    pass #has the appropriate matrices
 
   # ====================
-  # adds all the points for a sphere with center 
+  # adds all the points for a sphere with center
   # (cx, cy, cz) and radius r to points
   # should call generate_sphere to create the
   # necessary points
   # ====================
 def add_sphere( points, cx, cy, cz, r, step ):
+    sphere_mat= generate_sphere(points,cx,cy,cz,r,step)
     pass
 
 
@@ -34,8 +39,8 @@ def add_sphere( points, cx, cy, cz, r, step ):
   # radii r0 and r1.
   # Returns a matrix of those points
   # ====================
-def generate_torus( points, cx, cy, cz, r0, r1, step ):
-    pass
+def generate_torus(points, cx, cy, cz, r0, r1, step ):
+    return [] #has the appropriate matrices
 
   # ====================
   # adds all the points for a torus with center
@@ -44,6 +49,7 @@ def generate_torus( points, cx, cy, cz, r0, r1, step ):
   # necessary points
   # ====================
 def add_torus( points, cx, cy, cz, r0, r1, step ):
+    [cos]
     pass
 
 
@@ -93,16 +99,16 @@ def draw_lines( matrix, screen, color ):
                    int(matrix[point][1]),
                    int(matrix[point+1][0]),
                    int(matrix[point+1][1]),
-                   screen, color)    
+                   screen, color)
         point+= 2
-        
+
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
     add_point(matrix, x0, y0, z0)
     add_point(matrix, x1, y1, z1)
-    
+
 def add_point( matrix, x, y, z=0 ):
     matrix.append( [x, y, z, 1] )
-    
+
 
 
 
@@ -126,7 +132,7 @@ def draw_line( x0, y0, x1, y1, screen, color ):
     if ( abs(x1-x0) >= abs(y1 - y0) ):
 
         #octant 1
-        if A > 0:            
+        if A > 0:
             d = A + B/2
 
             while x < x1:
