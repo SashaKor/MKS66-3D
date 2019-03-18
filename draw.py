@@ -33,8 +33,17 @@ def add_box( points, x, y, z, width, height, depth ):
 def generate_sphere( points, cx, cy, cz, r, step ):
     #generating by rotating a circle about the x axis
     #add_circle command adds it to edge matrix
-
-    pass #has the appropriate matrices
+    #creates circle of a certain radius and store xyz for all those rotated points
+    t= new_matrix()
+    ident(t)
+    for phi
+        theta
+        lst=[]
+        x=r*cos(theta)+cx
+        y= r*sin(theta)*cos(phi)+cy
+        z= r*sin(theta)*sin(phi)+cz #loop from note
+        t.append([x,y,z,1])
+         #has the appropriate matrices
 
   # ====================
   # adds all the points for a sphere with center
@@ -43,6 +52,7 @@ def generate_sphere( points, cx, cy, cz, r, step ):
   # necessary points
   # ====================
 def add_sphere( points, cx, cy, cz, r, step ):
+    #add to the edge matrix and display
     sphere_mat= generate_sphere(points,cx,cy,cz,r,step)
     pass
 
