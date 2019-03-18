@@ -7,8 +7,22 @@ from matrix import *
   # height and depth dimensions.
   # ====================
 def add_box( points, x, y, z, width, height, depth ):
-
-    pass
+    #Upper left Front
+    add_edge(points,x,y,z,x,y-height,z)
+    add_edge(points,x,y,z,x+width,y,z)
+    add_edge(points,x,y,z,x,y,z-depth)
+    #Upper right back
+    add_edge(points,x+width,y,z-depth,x,y,z-depth)
+    add_edge(points,x+width,y,z-depth,x+width,y-height,z-depth)
+    add_edge(points,x+width,y,z-depth,x+width,y,z)
+    #Lower right front
+    add_edge(points,x+width,y-height,z,x,y-height,z)
+    add_edge(points,x+width,y-height,z,x+width,y,z)
+    add_edge(points,x+width,y-height,z,x+width,y-height,z-depth)
+    #lower left back
+    add_edge(points,x,y-height,z-depth,x+width,y-height,z-depth)
+    add_edge(points,x,y-height,z-depth,x,y,z-depth)
+    add_edge(points,x,y-height,z-depth,x,y-height,z)
 
   # ====================
   # Generates all the points along the surface
@@ -90,7 +104,7 @@ def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
 
 def draw_lines( matrix, screen, color ):
     if len(matrix) < 2:
-        print 'Need at least 2 points to draw'
+        print('Need at least 2 points to draw')
         return
 
     point = 0
