@@ -35,14 +35,14 @@ def generate_sphere( points, cx, cy, cz, r, step ):
     #add_circle command adds it to edge matrix
     #creates circle of a certain radius and store xyz for all those rotated points
     for i in range(step + 1):
-        phi = (math.pi * 2) / (step) * i
+        phi = (math.pi * 2)/(step)*i
         for k in range(int(step / 2.) + 1):
-            theta = math.pi / ((step / 2.)) * k
+            theta = math.pi/((step / 2.))*k
             #provided in class
-            x = r * math.cos(theta) + cx
-            y = r * math.sin(theta) * math.cos(phi) + cy
-            z = r * math.sin(theta) * math.sin(phi) + cz
-            add_edge( points, x, y-1, z, x, y+1, z )
+            x =r*math.cos(theta)+cx
+            y =r*math.sin(theta)*math.cos(phi)+cy
+            z =r*math.sin(theta)*math.sin(phi)+cz
+            add_edge(points,x,y-1,z,x,y+1,z)
 
   # ====================
   # adds all the points for a sphere with center
@@ -62,8 +62,15 @@ def add_sphere( points, cx, cy, cz, r, step ):
   # Returns a matrix of those points
   # ====================
 def generate_torus(points, cx, cy, cz, r0, r1, step ):
-    return [] #has the appropriate matrices
-
+    for i in range(step + 1):
+        phi = (math.pi * 2)/(step)*i
+        for k in range(step + 1):
+            #again, eqns discussed in class.
+            theta =(math.pi * 2)/(step)*k
+            x=r0*math.cos(theta)*math.cos(phi)+r1*math.cos(phi)
+            y=r0*math.sin(theta)
+            z=-r0*math.cos(theta)*math.sin(phi)-r1*math.sin(phi)
+            add_edge(points,x,y-1,z,x,y+1,z)
   # ====================
   # adds all the points for a torus with center
   # (cx, cy, cz) and radii r0, r1 to points
@@ -71,9 +78,8 @@ def generate_torus(points, cx, cy, cz, r0, r1, step ):
   # necessary points
   # ====================
 def add_torus( points, cx, cy, cz, r0, r1, step ):
-    [cos]
-    pass
-
+    generate_torus(points, cx, cy, cz, r0, r1, step)
+#points already populated by generate
 
 
 def add_circle( points, cx, cy, cz, r, step ):
