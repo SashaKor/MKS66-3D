@@ -34,16 +34,15 @@ def generate_sphere( points, cx, cy, cz, r, step ):
     #generating by rotating a circle about the x axis
     #add_circle command adds it to edge matrix
     #creates circle of a certain radius and store xyz for all those rotated points
-    t= new_matrix()
-    ident(t)
-    for phi
-        theta
-        lst=[]
-        x=r*cos(theta)+cx
-        y= r*sin(theta)*cos(phi)+cy
-        z= r*sin(theta)*sin(phi)+cz #loop from note
-        t.append([x,y,z,1])
-         #has the appropriate matrices
+    for i in range(step + 1):
+        phi = (math.pi * 2) / (step) * i
+        for k in range(int(step / 2.) + 1):
+            theta = math.pi / ((step / 2.)) * k
+            #provided in class
+            x = r * math.cos(theta) + cx
+            y = r * math.sin(theta) * math.cos(phi) + cy
+            z = r * math.sin(theta) * math.sin(phi) + cz
+            add_edge( points, x, y-1, z, x, y+1, z )
 
   # ====================
   # adds all the points for a sphere with center
@@ -53,8 +52,7 @@ def generate_sphere( points, cx, cy, cz, r, step ):
   # ====================
 def add_sphere( points, cx, cy, cz, r, step ):
     #add to the edge matrix and display
-    sphere_mat= generate_sphere(points,cx,cy,cz,r,step)
-    pass
+    generate_sphere(points,cx,cy,cz,r,step)
 
 
   # ====================
